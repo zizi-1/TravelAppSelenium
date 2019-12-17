@@ -1,9 +1,11 @@
-   package persistence.domain;
+   package com.bae.persistence.domain;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Poi {
 	
 	@Id
@@ -18,11 +20,9 @@ public class Poi {
 
 
 	public Poi(String poiName, String link) {
-		super();
 		this.poiName = poiName;
 		this.link = link;
 	}
-
 
 	public Long getId() {
 		return id;
@@ -34,7 +34,7 @@ public class Poi {
 	}
 
 
-	public String getPoiName() {
+	public String getPoiName(String name) {
 		return poiName;
 	}
 
