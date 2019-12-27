@@ -15,14 +15,15 @@ public class Poi {
 	private String link;
 	
 	public Poi() {
-		super();
+
 	}
 
-
 	public Poi(String poiName, String link) {
+		super();
 		this.poiName = poiName;
 		this.link = link;
 	}
+
 
 	public Long getId() {
 		return id;
@@ -34,7 +35,7 @@ public class Poi {
 	}
 
 
-	public String getPoiName(String name) {
+	public String getPoiName() {
 		return poiName;
 	}
 

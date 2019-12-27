@@ -5,6 +5,9 @@ import com.bae.persistence.domain.Details;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
+import java.util.List;
+
 @RestController
 @RequestMapping("/details")
 public class DetailsController {
@@ -18,18 +21,26 @@ public class DetailsController {
         this.detailsService = detailsService;
     }
 
+    @GetMapping("/getAll")
+    public List<Details> getAllPoi() {
+        return this.detailsService.readPoi();
+    }
+
     @PostMapping("/add")
     public Details addNewDetails(@RequestBody Details details) {
 
-        return detailsService.addNewDetails(details);
+        return this.detailsService.addNewDetails(details);
     }
 
     @PutMapping("/update")
-    public Details updateDetails(@RequestBody Details details) {
+    public Details updateDetails(@PathParam("id") Long id, @RequestBody Details details) {
 
-        return detailsService.updateDetails(details);
+        return this.detailsService.updateDetails(id, details);
     }
 
-
+    @DeleteMapping("/deletePond/{id}")
+    public void deletePond(@PathVariable Long id) {
+        this.detailsService.deleteDetails(id);
+    }
 
 }

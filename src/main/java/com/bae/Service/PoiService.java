@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.bae.exceptions.PoiNotFoundException;
 import com.bae.persistence.repo.PoiRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,36 +23,32 @@ public class PoiService {
 	}
 
 	public List<Poi> getAllPoi(){
-		if (poiRepo.findAll().isEmpty()){
-			setUpPoi();
-		}
-		return poiRepo.findAll();
+		return this.poiRepo.findAll();
 	}
 
-	private void setUpPoi() {
-		Poi z = new Poi("zohaib","url");
-		Poi x = new Poi("dubai","url2");
-		poiRepo.save(z);
-		poiRepo.save(x);
-	}
+	 public Poi findPoiById(Long id){
 
-	 public Poi getPoi(String name) {
-
-		return null;
+		return this.poiRepo.findById(id).orElseThrow (PoiNotFoundException::new);
 	 }
 
 	public Poi addNewPoi(Poi p) {
 
-		return poiRepo.save(p);
+		return this.poiRepo.save(p);
 	}
 
-	public Poi updatePoi(Poi p) {
-
-		return poiRepo.save(p);
+	public Poi updatePoi(Long id, Poi poi) {
+		Poi toUpdate = findPoiById(id);
+		toUpdate.setPoiName(poi.getPoiName());
+		toUpdate.setLink(poi.getLink());
+		return this.poiRepo.save(toUpdate);
 	}
 
-	public String deletePoi(Long id) {
-		poiRepo.deleteById(id);
-		return "Poi deleted successfully";
+	public boolean deletePoi(Long id) {
+		if (!this.poiRepo.existsById(id)) {
+			throw new PoiNotFoundException();
+		}
+		this.poiRepo.deleteById(id);
+		return this.poiRepo.existsById(id);
 	}
+
 }
