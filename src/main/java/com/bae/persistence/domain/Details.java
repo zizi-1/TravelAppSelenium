@@ -33,15 +33,12 @@ public class Details {
     public Details() {
     }
 
-    public Details(String origin, String destination, Date dateFrom, Date dateTo, int allowance, int remaining, int spent, Poi... poi) {
+    public Details(String origin, String destination, Date dateFrom, Date dateTo, Poi... poi) {
         super();
         this.origin = origin;
         this.destination = destination;
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
-        this.allowance = allowance;
-        this.remaining = remaining;
-        this.spent = spent;
         this.poi = Arrays.asList(poi);
     }
 
@@ -93,48 +90,22 @@ public class Details {
         this.dateTo = dateTo;
     }
 
-    public int getAllowance() {
-        return allowance;
-    }
-
-    public void setAllowance(int allowance) {
-        this.allowance = allowance;
-    }
-
-    public int getRemaining() {
-        return remaining;
-    }
-
-    public void setRemaining(int remaining) {
-        this.remaining = remaining;
-    }
-
-    public int getSpent() {
-        return spent;
-    }
-
-    public void setSpent(int spent) {
-        this.spent = spent;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Details details = (Details) o;
-        return allowance == details.allowance &&
-                remaining == details.remaining &&
-                spent == details.spent &&
-                id.equals(details.id) &&
+        return Objects.equals(id, details.id) &&
                 Objects.equals(origin, details.origin) &&
                 Objects.equals(destination, details.destination) &&
                 Objects.equals(dateFrom, details.dateFrom) &&
-                Objects.equals(dateTo, details.dateTo);
+                Objects.equals(dateTo, details.dateTo) &&
+                Objects.equals(poi, details.poi);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, origin, destination, dateFrom, dateTo, allowance, remaining, spent);
+        return Objects.hash(id, origin, destination, dateFrom, dateTo, poi);
     }
 
     @Override
@@ -145,11 +116,7 @@ public class Details {
                 ", destination='" + destination + '\'' +
                 ", dateFrom=" + dateFrom +
                 ", dateTo=" + dateTo +
-                ", allowance=" + allowance +
-                ", remaining=" + remaining +
-                ", spent=" + spent +
+                ", poi=" + poi +
                 '}';
     }
-
-
 }

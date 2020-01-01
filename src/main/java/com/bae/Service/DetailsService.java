@@ -49,9 +49,6 @@ public class DetailsService {
 		Updated.setDestination(details.getDestination());
 		Updated.setDateFrom(details.getDateFrom());
 		Updated.setDateTo(details.getDateTo());
-		Updated.setAllowance(details.getAllowance());
-		Updated.setRemaining(details.getRemaining());
-		Updated.setSpent(details.getSpent());
 		return this.detailsRepo.save(Updated);
 
 
