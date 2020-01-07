@@ -39,7 +39,7 @@ public class PoiController {
     }
 
     @PutMapping("/update/{id}")
-    public Poi updateDuck(@PathParam("id") Long id, @RequestBody Poi poi) {
+    public Poi updateDuck(@PathVariable("id") Long id, @RequestBody Poi poi) {
 
 
         return this.poiService.updatePoi(id, poi);
