@@ -23,9 +23,6 @@ public class Details {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date dateTo;
 
-    private int allowance;
-    private int remaining;
-    private int spent;
 
     @OneToMany
     private List<Poi> poi;

@@ -43,14 +43,14 @@ public class DetailsService {
 		return this.detailsRepo.findAll();
 	}
 
-	public Details updateDetails(Long id, Details details) {
+	public Details updateDetails(Details details, Long id) {
+		
 		Details Updated = findDetailsByID(id);
 		Updated.setOrigin(details.getOrigin());
 		Updated.setDestination(details.getDestination());
 		Updated.setDateFrom(details.getDateFrom());
 		Updated.setDateTo(details.getDateTo());
 		return this.detailsRepo.save(Updated);
-
 
 	}
 }

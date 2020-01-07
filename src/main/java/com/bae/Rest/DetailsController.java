@@ -32,14 +32,15 @@ public class DetailsController {
         return this.detailsService.addNewDetails(details);
     }
 
-    @PutMapping("/update")
-    public Details updateDetails(@PathParam("id") Long id, @RequestBody Details details) {
+    @PutMapping("/update/{id}")
+    public Details updateDetails(@PathVariable("id") Long id, @RequestBody Details details) {
 
-        return this.detailsService.updateDetails(id, details);
+        return this.detailsService.updateDetails(details, id);
     }
 
-    @DeleteMapping("/deletePond/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deletePond(@PathVariable Long id) {
+
         this.detailsService.deleteDetails(id);
     }
 
