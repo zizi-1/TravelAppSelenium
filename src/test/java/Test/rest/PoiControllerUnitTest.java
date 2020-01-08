@@ -74,7 +74,7 @@ public class PoiControllerUnitTest {
 
         when(this.poiService.updatePoi(this.id, newPoi)).thenReturn(updatedPoi);
 
-        assertEquals(updatedPoi, this.poiController.updateDuck(this.id, newPoi));
+        assertEquals(updatedPoi, this.poiController.updatePoi(this.id, newPoi));
 
         verify(this.poiService, times(1)).updatePoi(this.id, newPoi);
 
