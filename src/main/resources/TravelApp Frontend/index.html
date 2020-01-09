@@ -3,18 +3,19 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Travel App</title>
+  <title>Regna Bootstrap Template</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
 
   <!-- Favicons -->
   <link href="img/z1.png" rel="icon">
-  <link href="img/z1.png" rel="apple-touch-icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700"
     rel="stylesheet">
+
 
   <!-- Bootstrap CSS File -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -32,56 +33,56 @@
 </head>
 
 <body>
+
   <!--==========================
   Header
   ============================-->
   <header id="header">
     <div class="container">
 
-      <div class="pull-left">
-        <a href="#home">
+      <div id="logo" class="pull-left">
+        <a href="#hero">
           <p id="logo">Travel App</p>
         </a>
       </div>
       <span>&#9992;</span>
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#home">Home</a></li>
-          <li><a href="#summary">Summary</a></li>
+          <li class="menu-active"><a href="#hero">Home</a></li>
+          <li><a href="#about">Summmary</a></li>
           <li><a href="#services">Details</a></li>
           <li><a href="#portfolio">Budget / POI</a></li>
           <span>&#9992;</span>
         </ul>
-      </nav>
+      </nav><!-- #nav-menu-container -->
     </div>
-  </header>
+  </header><!-- #header -->
 
   <!--==========================
-    Home Section
+    Hero Section
   ============================-->
-  <section id="home">
-    <div class="home-container">
+  <section id="hero">
+    <div class="hero-container">
       <h1>Welcome to the TravelApp</h1>
       <h2>Deep travelling quote<span>&#9992;</span> </h2>
       <a href="#services" class="btn-get-started">Get Started</a>
-      <a href="#detail" class="btn-get-started" onclick="startUpDetails()">View Trip</a>
+      <a href="#about" class="btn-get-started" onclick="startUpDetails()">View Trip</a>
     </div>
-  </section>
+  </section><!-- #hero -->
 
   <!--==========================
       Summary Section
     ============================-->
 
-  <section id="summary">
-    <div class="container wow fadeIn">
-      <div class="row summary-container">
-
+  <section id="about">
+    <div class="container">
+      <div class="row about-container">
         <div class="col-lg-6 content order-lg-1 order-2">
           <h2 class="title">Trip Summary</h2>
           <p>The summary of the users trip will go here</p>
 
           <div class="zzz">
-            <div class="originBox">
+            <div class="destinationbox">
               <div class="containerSummary">
                 <div class="city-title"><span id="o"> </span><br><div id="df"> </div></div>
                 <hr />
@@ -89,14 +90,15 @@
                 <div class="city-weather-description" id="city-weather-description">
                   snow
                 </div>
-
+                
                 <img src="http://openweathermap.org/img/w/01d.png" alt="weather-icon" class="city-weather-icon" id="city-weather-icon" />
 
+              </div> <!-- end container -->
             </div> <!-- end destinationbox -->
             </div>
-
+              
             <div class="aaa">
-            <div class="destinationBox">
+            <div class="destinationbox">
               <div class="containerSummary">
                 <div class="city-title"><span id="d"> </span><br><div id="dt"> </div></div>
                 <hr />
@@ -118,23 +120,77 @@
                         <li>Secs</li>
                       </div>
                     </div>
-                  </div>
-                </div>
+                  </div> 
+                </div> 
+                
+                <!-- Destination Hotel -->
+                <!-- <div class="content">
+                  <nav>
+                    <ul>
+                      <li><a href="#">Hotel</a></li>
+                    </ul>
+                  </nav>
+                  <div class="nav-info clearfix" id="offices">
+                    <div class="one-half">
+                      <div class="info" id="offices">
+                        <div class="company-name">Hotel Blah</div>
+                        <div class="address">Hotel Address</div>
+                        <div class="phone">+44 123 654 9873</div>
+                      </div> 
+                    </div> 
+            
+                    <div class="one-half">
+                      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/office1.png" alt="office 1" />           
+                  </div> 
+                </div>   -->
 
               </div> <!-- end container -->
             </div> <!-- end destinationbox -->
+              </div>
 
+          <!-- <div class="icon-box wow fadeInUp box2" data-wow-delay="0.3s">
+            <div class="icon"><i class="fa fa-paper-plane-o"></i></div>
+            <h5 class="title"><span id="o"> </span><span id="df"> </span></h5>
+            <p class="description">origin details + weather</p>
+            <div>
+              <script type="text/javascript"
+                src="https://darksky.net/widget/default-small/42.360082,-71.05888/us12/en.js?width=undefined&height=70&title=Full Forecast&textColor=333333&bgColor=FFFFFF&skyColor=333&fontFamily=Default&customFont=&units=us"></script>
+            </div>
           </div>
+
+          <div class="icon-box wow fadeInUp box3" data-wow-delay="0.3s">
+            <div class="icon"><i class="fa fa-paper-plane-o"></i></div>
+            <h5 class="title">
+              <div id="d"> </div><div id="dt"> </div>
+            </h5>
+            <p class="description">destination details + weather</p>
+            <div>
+              <script type="text/javascript"
+                src="https://darksky.net/widget/default-small/42.360082,-71.05888/us12/en.js?width=undefined&height=70&title=Full Forecast&textColor=333333&bgColor=FFFFFF&skyColor=333&fontFamily=Default&customFont=&units=us"></script>
+            </div>
+          </div>
+
+          <div class="icon-box wow fadeInUp box4" data-wow-delay="0.6s">
+            <input type="button" class="btn btn-info" value="Things To Do" target="_blank" onclick=thingsToDo()>
+          </div> -->
+
+
+             
+
         </div>
       </div>
     </div>
-    </div>
+    
   </section>
+  
+
+  <!-- #about -->
+
   <!--==========================
       Details Section
     ============================-->
   <section id="services">
-    <div class="container wow fadeInUp">
+    <div class="container wow fadeIn">
       <div class="section-header">
         <h3 class="section-title">Details</h3>
         <p class="section-description">Please enter the details of your trip on this page</p>
@@ -200,18 +256,21 @@
       </div>
     </div>
 
+    </div>
 
-
-  </section>
+  </section><!-- #services -->
 
   <!--==========================
     Call To Action Section
     ============================-->
   <section id="call-to-action">
     <div class="container wow fadeIn">
-      <div class="row"></div>
+      <div class="row">
+
+      </div>
+
     </div>
-  </section>
+  </section><!-- #call-to-action -->
 
   <!--==========================
       Portfolio Section
@@ -355,9 +414,13 @@
     </div>
     </div>
   </section>
+
+  <!-- #portfolio -->
+
   <!-- sky scanner flight search -->
   <!-- <div data-skyscanner-widget="SearchWidget"></div> 
                 <script src="https://widgets.skyscanner.net/widget-server/js/loader.js" async></script> -->
+
 
   <h6>Designed by Zohaib Zahid</h6>
   </div>
@@ -378,6 +441,7 @@
   <script src="lib/superfish/superfish.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>

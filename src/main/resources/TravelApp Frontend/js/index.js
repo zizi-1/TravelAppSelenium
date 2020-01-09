@@ -58,7 +58,7 @@ function addDetail() {
 
 function updateDetail() {
   axios
-    .put('http://localhost:8083/details/update/1', {
+    .patch('http://localhost:8083/details/update/1', {
       origin: document.getElementById("origin").value,
       destination: document.getElementById("destination").value,
       dateFrom: document.getElementById("dateFrom").value,
