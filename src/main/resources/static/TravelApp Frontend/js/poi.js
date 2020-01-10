@@ -14,9 +14,6 @@ function addPoi() {
     getPoiName();
 }
 
-
-
-
 function deletePoi(id) {
     var id = document.getElementById("id").value;
     axios
