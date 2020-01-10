@@ -1,15 +1,21 @@
 "use strict";
 
 // Poi functionality
-function addPois() {
+function addPoi() {
+    let poiName = document.getElementById("poiName").value;
+    let poiLink = document.getElementById("link").value;
     axios
         .post('http://localhost:8080/poi/add', {
-            poiName: document.getElementById("poiName").value,
-            link: document.getElementById("link").value,
+            poiName: poiName,
+            link: poiLink
         })
-        .then(alert("Your place of interest has been added"))
+        .then(res => console.log(res))
         .catch(error => console.log(error));
+    getPoiName();
 }
+
+
+
 
 function deletePoi(id) {
     var id = document.getElementById("id").value;
@@ -28,7 +34,7 @@ function getPoiName() {
     axios
         .get('http://localhost:8080/poi/all')
         .then((res) => {
-            showPoiN(res.data);
+            showPoiNTable(res.data);
             console.log(res.data);
         })
         .catch((error) => {
@@ -36,22 +42,42 @@ function getPoiName() {
         })
 }
 
-const poiN = document.getElementById("poiTable");
+const poiN = document.getElementById("poiT");
 
 function showPoiN(name) {
     poiN.innerHTML = "";
     for (let p of name) {
         const newPN = document.createElement("span");
-        newPN.innerHTML = p.poiName;
+        newPN.innerHTML = p.poiName + p.link;
         poiN.appendChild(newPN);
     }
 }
+
+
+
+
+function showPoiNTable(name) {
+    var table = document.getElementById("poiTable");
+    table.innerHTML ="";
+    for (let p of name) {
+        var row = table.insertRow(-1);
+        var cell1  = row.insertCell(0);
+        var cell2  = row.insertCell(1);
+        console.log(p.poiName);
+        console.log(p.link);
+        cell1.innerHTML = p.poiName ;
+        cell2.innerHTML = p.link ;
+
+    }
+}
+
+
 
 function getPoiLink(){
     axios
         .get('http://localhost:8080/poi/all')
         .then((res)=>{
-            showPoiL(res.data);
+            showPoiNTable(res.data);
             console.log(res.data);
         })
         .catch((error) => {
@@ -59,12 +85,12 @@ function getPoiLink(){
         })
 }
 
-const poiL = document.getElementById("poiTable");
+const poiL = document.getElementById("poi");
 function showPoiL(link){
     poiL.innerHTML = "";
     for (let p of link) {
         const newPL = document.createElement("span");
-        newPL.innerHTML = p.poiName;
+        newPL.innerHTML = p.link;
         poiL.appendChild(newPL);
     }
 }
