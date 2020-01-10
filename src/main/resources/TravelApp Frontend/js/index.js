@@ -2,19 +2,9 @@
 
 
 function displayDetails() {
-  var o = document.getElementById("origin").value;
-  document.getElementById("o").innerHTML = o;
-
-  var d = document.getElementById("destination").value;
-  document.getElementById("d").innerHTML = d;
-
-  var df = document.getElementById("dateFrom").value;
-  document.getElementById("df").innerHTML = df;
-
-  var dt = document.getElementById("dateTo").value
-  document.getElementById("dt").innerHTML = dt;
-
   addDetail();
+  getCountdown();
+  getAllD();
   getCountdown();
 }
 
@@ -45,7 +35,7 @@ function showDateTo(dateT) {
   dateToDetails.innerHTML = "";
   for (let x of dateT) {
     const newDT = document.createElement("span");
-    newDT.innerHTML = x.dateTo;
+    newDT.innerHTML = formatDate(x.dateTo);
     dateToDetails.appendChild(newDT);
   }
 }
@@ -65,7 +55,7 @@ function showDateFrom(dateF) {
   dateFromDetails.innerHTML = "";
   for (let x of dateF) {
     const newDF = document.createElement("span");
-    newDF.innerHTML = x.dateFrom;
+    newDF.innerHTML = formatDate(x.dateFrom);
     dateFromDetails.appendChild(newDF);
   }
 }
@@ -115,8 +105,19 @@ function showOrigin(trip) {
 
 
 
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
 
+    if (month.length < 2)
+        month = '0' + month;
+    if (day.length < 2)
+        day = '0' + day;
 
+    return [year, month, day].join('-');
+}
 
 
 
@@ -130,7 +131,7 @@ function addDetail() {
       dateFrom: document.getElementById("dateFrom").value,
       dateTo: document.getElementById("dateTo").value,
     })
-    .then(res => showOutput(res))
+    .then(res => console.log(res))
     .catch(error => console.log(error));
 }
 
@@ -142,40 +143,24 @@ function updateDetail() {
       dateFrom: document.getElementById("dateFrom").value,
       dateTo: document.getElementById("dateTo").value,
     })
-    .then(res => showOutput(res))
+    .then(res => console.log(res))
     .catch(error => console.log(error));
 }
 
 function deleteDetail() {
   axios
-    .delete('http://localhost:8080/details/delete/3')
+    .delete('http://localhost:8080/details/delete/2')
     .then(alert("The details have been deleted"))
     .catch(error => console.log(error));
 }
 
 
-function showOutput(res) {
-  document.getElementById('all').innerHTML = `
-    <div class="card card-body mb-4">
-      <h5>Status: ${res.status}</h5>
-    </div>
 
-    <div class="card mt-3">
-      <div class="card-header">
-        Data
-      </div>
-      <div class="card-body">
-        <pre>${JSON.stringify(res.data, null, 2)}</pre>
-      </div>
-    </div>
-
-  `;
-}
 
 
 
 //   countdown ----->
-var target_date = new Date().getTime() + (dateSeconds()); // set the countdown date
+var target_date = new Date.getTime() + (dateSeconds()); // set the countdown date
 var days, hours, minutes, seconds; // variables for time units
 
 var countdown = document.getElementById("tiles");
@@ -198,7 +183,7 @@ function getCountdown() {
   minutes = pad(parseInt(seconds_left / 60));
   seconds = pad(parseInt(seconds_left % 60));
 
-  // format countdown string + set tag value
+  // format countdown string
   countdown.innerHTML = "<span>" + days + "</span><span>" + hours + "</span><span>" + minutes + "</span><span>" + seconds + "</span>";
 }
 
@@ -207,7 +192,7 @@ function pad(n) {
 }
 
 function dateSeconds() {
-  var _initial = document.getElementById("dateFrom").value;
+  var _initial = getDateFrom().value;
   var fromTime = new Date(_initial);
   var toTime = new Date();
 

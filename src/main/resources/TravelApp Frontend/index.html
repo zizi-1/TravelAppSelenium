@@ -20,6 +20,8 @@
   <!-- Bootstrap CSS File -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+
+
   <!-- Libraries CSS Files -->
   <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="lib/animate/animate.min.css" rel="stylesheet">
@@ -67,6 +69,9 @@
       <h2>Deep travelling quote<span>&#9992;</span> </h2>
       <a href="#services" class="btn-get-started">Get Started</a>
       <a href="#about" class="btn-get-started" onclick="getAllD()">View Trip</a>
+
+
+
     </div>
   </section><!-- #hero -->
 
@@ -84,7 +89,7 @@
           <div class="zzz">
             <div class="destinationBox">
               <div class="containerSummary">
-                <div class="city-title"><span id="d"></span><br><div id="dt"> </div></div>
+                <div class="city-title"><span id="d"></span><br></div>
                 <hr />
                 <div class="city-weather-temperature"  id="city-weather-temperature">-1° C</div>
                 <div class="city-weather-description" id="city-weather-description">
@@ -92,7 +97,7 @@
                 </div>
                 
                 <img src="http://openweathermap.org/img/w/01d.png" alt="weather-icon" class="city-weather-icon" id="city-weather-icon" />
-
+                <div class="city-title"><div id="dt"> </div></div>
               </div> <!-- end container -->
             </div> <!-- end destinationBox -->
             </div>
@@ -100,7 +105,7 @@
             <div class="aaa">
             <div class="originBox">
               <div class="containerSummary">
-                <div class="city-title"><span id="o"> </span><br><div id="df"> </div></div>
+                <div class="city-title"><span id="o"> </span><br></div>
                 <hr />
                 <div class="city-weather-temperature"  id="city-weather-temperature">3° C</div>
                 <div class="city-weather-description" id="city-weather-description">
@@ -108,6 +113,7 @@
                 </div>
                 
                 <img src="http://openweathermap.org/img/w/01d.png" alt="weather-icon" class="city-weather-icon" id="city-weather-icon" />
+                <div class="city-title"><div id="df"> </div></div>
 
                 <div class="ccss">
                   <div class="box-countdown">
@@ -204,6 +210,7 @@
                 onclick="displayDetails()">Save Details</button></h4>
             <button class="btn btn-warning">Clear</button>
             <button class="btn btn-primary" onclick="updateDetail()">Update</button>
+            <button class="btn btn-primary" onclick="getCountdown()">Countdown</button>
             <button class="btn btn-danger" onclick="deleteDetail()">Delete</button>
           </div>
         </div>
@@ -314,9 +321,11 @@
       <div class="pcss">
         <div class="portfolio-item filter-poi">
 
+
           <div class="container">
             <div class="row">
               <div class="col-md-4">
+                <button class="btn btn-danger" onclick ="getPoi()">GetPOI</button>
                 <h3>Add Poi</h3>
                 <form id="addUser" action="">
 
@@ -328,27 +337,30 @@
                       required>
                   </div>
                   <button class="btn btn-primary form-control" type="submit" onclick="addPoi()">SUBMIT</button>
-                  
+
+
+
                 </form>
-                <button class="btn btn-primary" type="submit" onclick="getAllPoi()">Get All</button>
+                <button class="btn btn-primary" type="submit" onclick="">Get All</button>
               </div>
               <div class="col-md-8">
                 <h3>Places of Interest</h3>
                 <table id="poiTable" class="table table-striped">
-                  <div class="asd"></div>
-                  <div id="all">herererer</div>
                   <tr>
                     <th>Name</th>
                     <th>Link</th>
                   </tr>
+                  <div class = "poiT"></div>
                 </table>
                 <input id="id" type="number">enter id to be deleted</input>
                 <button onclick="deletePoi()">delete</button>
+
               </div>
             </div>
           </div>
 
-          <!-- Update POi -->
+        <!--Update POi -->
+
           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -363,7 +375,7 @@
             </div>
           </div>
 
-        </div>
+
       </div>
     </div>
     </div>
@@ -398,10 +410,11 @@
 
 
   <!-- Template Main Javascript File -->
+  <script src="js/poi.js"></script>
   <script src="js/main.js"></script>
   <script src="js/index.js"></script>
   <script src="js/budget.js"></script>
-  <script src="js/poi.js"></script>
+
 
 </body>
 
