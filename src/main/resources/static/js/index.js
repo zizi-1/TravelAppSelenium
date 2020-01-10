@@ -21,7 +21,7 @@ function getAllD() {
 }
 function getDateTo() {
   axios
-      .get('TravelApp/details/getAll')
+      .get('/TravelApp/details/getAll')
       .then((res) => {
         showDateTo(res.data);
         console.log(res.data);
@@ -41,7 +41,7 @@ function showDateTo(dateT) {
 }
 function getDateFrom() {
   axios
-      .get('TravelApp/details/getAll')
+      .get('/TravelApp/details/getAll')
       .then((res) => {
         showDateFrom(res.data);
         console.log(res.data);
@@ -61,7 +61,7 @@ function showDateFrom(dateF) {
 }
 function getDestination() {
   axios
-      .get('TravelApp/details/getAll')
+      .get('/TravelApp/details/getAll')
       .then((res) => {
         showDestination(res.data);
         console.log(res.data);
@@ -81,7 +81,7 @@ function showDestination(trip) {
 }
 function getOrigin() {
   axios
-      .get('TravelApp/details/getAll')
+      .get('/TravelApp/details/getAll')
       .then((res) => {
         showOrigin(res.data);
         console.log(res.data);
@@ -125,7 +125,7 @@ function formatDate(date) {
 
 function addDetail() {
   axios
-    .post('TravelApp/details/add', {
+    .post('/TravelApp/details/add', {
       origin: document.getElementById("origin").value,
       destination: document.getElementById("destination").value,
       dateFrom: document.getElementById("dateFrom").value,
@@ -137,7 +137,7 @@ function addDetail() {
 
 function updateDetail() {
   axios
-    .patch('TravelApp/details/update/1', {
+    .patch('/TravelApp/details/update/1', {
       origin: document.getElementById("origin").value,
       destination: document.getElementById("destination").value,
       dateFrom: document.getElementById("dateFrom").value,
@@ -149,7 +149,7 @@ function updateDetail() {
 
 function deleteDetail() {
   axios
-    .delete('TravelApp/details/delete/2')
+    .delete('/TravelApp/details/delete/2')
     .then(alert("The details have been deleted"))
     .catch(error => console.log(error));
 }
