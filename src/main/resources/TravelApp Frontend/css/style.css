@@ -831,7 +831,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 	 font-weight: normal;
 	 font-style: normal;
 }
- .zzz .destinationbox {
+ .zzz .originBox {
 	 box-sizing: border-box;
 	 font: 13px "Open Sans", Arial;
 	 padding: 40px 0;
@@ -972,7 +972,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 	 display: none;
 }
  
- .aaa .destinationbox {
+ .aaa .destinationBox {
 	 box-sizing: border-box;
 	 font: 13px "Open Sans", Arial;
 	 padding: 40px 0;

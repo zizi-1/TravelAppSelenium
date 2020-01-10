@@ -1,15 +1,5 @@
-function startUpDetails() {
-  displayDetails();
-  clearInputs();
-}
+"use strict";
 
-
-function clearInputs() {
-  document.getElementById('origin').value = '';
-  document.getElementById('destination').value = '';
-  document.getElementById('dateFrom').value = '';
-  document.getElementById('dateTo').value = '';
-}
 
 function displayDetails() {
   var o = document.getElementById("origin").value;
@@ -24,7 +14,6 @@ function displayDetails() {
   var dt = document.getElementById("dateTo").value
   document.getElementById("dt").innerHTML = dt;
 
-  getAll();
   addDetail();
   getCountdown();
 }
@@ -33,20 +22,109 @@ function thingsToDo() {
   window.open("https://www.tripadvisor.co.uk/?fid=88fcde45-5a56-4c19-be9c-1718ed412c74", "_blank");
 }
 
-function getAll() {
+
+function getAllD() {
+  getOrigin();
+  getDestination();
+  getDateFrom()
+  getDateTo()
+}
+function getDateTo() {
   axios
-    .get('http://localhost:8083/details/getAll')
-    .then(res => { showOutput(res) })
-    .catch(error => console.err(error));
+      .get('http://localhost:8080/details/getAll')
+      .then((res) => {
+        showDateTo(res.data);
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
 }
-
+const dateToDetails = document.getElementById("dt");
+function showDateTo(dateT) {
+  dateToDetails.innerHTML = "";
+  for (let x of dateT) {
+    const newDT = document.createElement("span");
+    newDT.innerHTML = x.dateTo;
+    dateToDetails.appendChild(newDT);
+  }
+}
+function getDateFrom() {
+  axios
+      .get('http://localhost:8080/details/getAll')
+      .then((res) => {
+        showDateFrom(res.data);
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+}
+const dateFromDetails = document.getElementById("df");
+function showDateFrom(dateF) {
+  dateFromDetails.innerHTML = "";
+  for (let x of dateF) {
+    const newDF = document.createElement("span");
+    newDF.innerHTML = x.dateFrom;
+    dateFromDetails.appendChild(newDF);
+  }
+}
 function getDestination() {
-
+  axios
+      .get('http://localhost:8080/details/getAll')
+      .then((res) => {
+        showDestination(res.data);
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
 }
+const destinationDetails = document.getElementById("d");
+function showDestination(trip) {
+  destinationDetails.innerHTML = "";
+  for (let x of trip) {
+    const newD = document.createElement("span");
+    newD.innerHTML = x.destination;
+    destinationDetails.appendChild(newD);
+  }
+}
+function getOrigin() {
+  axios
+      .get('http://localhost:8080/details/getAll')
+      .then((res) => {
+        showOrigin(res.data);
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+}
+const tripDetails = document.getElementById("o");
+function showOrigin(trip) {
+  tripDetails.innerHTML = "";
+  for (let x of trip) {
+    const newO = document.createElement("span");
+    newO.innerHTML = x.origin;
+    tripDetails.appendChild(newO);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 function addDetail() {
   axios
-    .post('http://localhost:8083/details/add', {
+    .post('http://localhost:8080/details/add', {
       origin: document.getElementById("origin").value,
       destination: document.getElementById("destination").value,
       dateFrom: document.getElementById("dateFrom").value,
@@ -58,7 +136,7 @@ function addDetail() {
 
 function updateDetail() {
   axios
-    .patch('http://localhost:8083/details/update/1', {
+    .patch('http://localhost:8080/details/update/1', {
       origin: document.getElementById("origin").value,
       destination: document.getElementById("destination").value,
       dateFrom: document.getElementById("dateFrom").value,
@@ -70,7 +148,7 @@ function updateDetail() {
 
 function deleteDetail() {
   axios
-    .delete('http://localhost:8083/details/delete/3')
+    .delete('http://localhost:8080/details/delete/3')
     .then(alert("The details have been deleted"))
     .catch(error => console.log(error));
 }

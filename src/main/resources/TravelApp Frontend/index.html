@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Regna Bootstrap Template</title>
+  <title>Travel App</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -49,7 +49,7 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="#hero">Home</a></li>
-          <li><a href="#about">Summmary</a></li>
+          <li><a href="#about">Summary</a></li>
           <li><a href="#services">Details</a></li>
           <li><a href="#portfolio">Budget / POI</a></li>
           <span>&#9992;</span>
@@ -66,7 +66,7 @@
       <h1>Welcome to the TravelApp</h1>
       <h2>Deep travelling quote<span>&#9992;</span> </h2>
       <a href="#services" class="btn-get-started">Get Started</a>
-      <a href="#about" class="btn-get-started" onclick="startUpDetails()">View Trip</a>
+      <a href="#about" class="btn-get-started" onclick="getAllD()">View Trip</a>
     </div>
   </section><!-- #hero -->
 
@@ -82,9 +82,9 @@
           <p>The summary of the users trip will go here</p>
 
           <div class="zzz">
-            <div class="destinationbox">
+            <div class="destinationBox">
               <div class="containerSummary">
-                <div class="city-title"><span id="o"> </span><br><div id="df"> </div></div>
+                <div class="city-title"><span id="d"></span><br><div id="dt"> </div></div>
                 <hr />
                 <div class="city-weather-temperature"  id="city-weather-temperature">-1° C</div>
                 <div class="city-weather-description" id="city-weather-description">
@@ -94,13 +94,13 @@
                 <img src="http://openweathermap.org/img/w/01d.png" alt="weather-icon" class="city-weather-icon" id="city-weather-icon" />
 
               </div> <!-- end container -->
-            </div> <!-- end destinationbox -->
+            </div> <!-- end destinationBox -->
             </div>
               
             <div class="aaa">
-            <div class="destinationbox">
+            <div class="originBox">
               <div class="containerSummary">
-                <div class="city-title"><span id="d"> </span><br><div id="dt"> </div></div>
+                <div class="city-title"><span id="o"> </span><br><div id="df"> </div></div>
                 <hr />
                 <div class="city-weather-temperature"  id="city-weather-temperature">3° C</div>
                 <div class="city-weather-description" id="city-weather-description">
@@ -121,61 +121,15 @@
                       </div>
                     </div>
                   </div> 
-                </div> 
-                
-                <!-- Destination Hotel -->
-                <!-- <div class="content">
-                  <nav>
-                    <ul>
-                      <li><a href="#">Hotel</a></li>
-                    </ul>
-                  </nav>
-                  <div class="nav-info clearfix" id="offices">
-                    <div class="one-half">
-                      <div class="info" id="offices">
-                        <div class="company-name">Hotel Blah</div>
-                        <div class="address">Hotel Address</div>
-                        <div class="phone">+44 123 654 9873</div>
-                      </div> 
-                    </div> 
-            
-                    <div class="one-half">
-                      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/office1.png" alt="office 1" />           
-                  </div> 
-                </div>   -->
+                </div>
+
+<!--                <div class="icon-box wow fadeInUp box4" data-wow-delay="0.6s">-->
+<!--                  <input type="button" class="btn btn-info" value="Things To Do" target="_blank" onclick=thingsToDo()>-->
+<!--                </div>-->
 
               </div> <!-- end container -->
             </div> <!-- end destinationbox -->
               </div>
-
-          <!-- <div class="icon-box wow fadeInUp box2" data-wow-delay="0.3s">
-            <div class="icon"><i class="fa fa-paper-plane-o"></i></div>
-            <h5 class="title"><span id="o"> </span><span id="df"> </span></h5>
-            <p class="description">origin details + weather</p>
-            <div>
-              <script type="text/javascript"
-                src="https://darksky.net/widget/default-small/42.360082,-71.05888/us12/en.js?width=undefined&height=70&title=Full Forecast&textColor=333333&bgColor=FFFFFF&skyColor=333&fontFamily=Default&customFont=&units=us"></script>
-            </div>
-          </div>
-
-          <div class="icon-box wow fadeInUp box3" data-wow-delay="0.3s">
-            <div class="icon"><i class="fa fa-paper-plane-o"></i></div>
-            <h5 class="title">
-              <div id="d"> </div><div id="dt"> </div>
-            </h5>
-            <p class="description">destination details + weather</p>
-            <div>
-              <script type="text/javascript"
-                src="https://darksky.net/widget/default-small/42.360082,-71.05888/us12/en.js?width=undefined&height=70&title=Full Forecast&textColor=333333&bgColor=FFFFFF&skyColor=333&fontFamily=Default&customFont=&units=us"></script>
-            </div>
-          </div>
-
-          <div class="icon-box wow fadeInUp box4" data-wow-delay="0.6s">
-            <input type="button" class="btn btn-info" value="Things To Do" target="_blank" onclick=thingsToDo()>
-          </div> -->
-
-
-             
 
         </div>
       </div>
@@ -248,7 +202,7 @@
             <div class="icon"><a href=""><i class="fa fa-globe"></i></a></div>
             <h4 class="title">Submit<br><br><button type="button" class="btn btn-success"
                 onclick="displayDetails()">Save Details</button></h4>
-            <button class="btn btn-warning" onclick="clearInputs()">Clear</button>
+            <button class="btn btn-warning">Clear</button>
             <button class="btn btn-primary" onclick="updateDetail()">Update</button>
             <button class="btn btn-danger" onclick="deleteDetail()">Delete</button>
           </div>
