@@ -18,7 +18,7 @@ function addPoi() {
     let poiName = document.getElementById("poiName").value;
     let poiLink = document.getElementById("link").value;
     axios
-        .post('/poi/add', {
+        .post('/TravelApp/poi/add', {
             poiName: poiName,
             link: poiLink
         })
@@ -38,7 +38,7 @@ function getPoi(){
 
 function getPoiName() {
     axios
-        .get('/poi/all')
+        .get('/TravelApp/poi/all')
         .then((res) => {
             showPoiNTable(res.data);
             console.log(res.data);
@@ -50,7 +50,7 @@ function getPoiName() {
 
 function getPoiLink(){
     axios
-        .get('/poi/all')
+        .get('/TravelApp/poi/all')
         .then((res)=>{
             showPoiNTable(res.data);
             console.log(res.data);
@@ -99,7 +99,7 @@ function showPoiNTable(name) {
 function updatePoi(){
     let updateId = document.getElementById("updateId").value;
     axios
-        .put("/poi/update/" +updateId, {
+        .put("/TravelApp/poi/update/" +updateId, {
             poiName: document.getElementById("poiNameUpdate").value,
             link: document.getElementById("linkUpdate").value
         })
@@ -142,7 +142,7 @@ window.onclick = function(event) {
 function deletePoi() {
     let id = document.getElementById("id").value;
     axios
-        .delete('/poi/delete/' + id)
+        .delete('/TravelApp/poi/delete/' + id)
         .then(res => getPoi())
         .catch((error)=> {
                 console.log(error);
