@@ -1,6 +1,7 @@
 package com.bae.Service;
 
 import com.bae.exceptions.DetailsNotFoundException;
+import com.bae.exceptions.PoiNotFoundException;
 import com.bae.persistence.domain.Details;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,16 +35,16 @@ public class DetailsService {
 		return this.detailsRepo.existsById(id);
 	}
 
-	private Details findDetailsByID(Long id) {
+	public Details findDetailsByID(Long id) {
 		return this.detailsRepo.findById(id).orElseThrow(
 				() -> new DetailsNotFoundException());
 	}
 
-	public List<Details> readPoi() {
+	public List<Details> readDetails() {
 		return this.detailsRepo.findAll();
 	}
 
-	public Details updateDetails(Details details, Long id) {
+	public Details updateDetails(Long id, Details details) {
 		
 		Details Updated = findDetailsByID(id);
 		Updated.setOrigin(details.getOrigin());
@@ -51,6 +52,7 @@ public class DetailsService {
 		Updated.setDateFrom(details.getDateFrom());
 		Updated.setDateTo(details.getDateTo());
 		return this.detailsRepo.save(Updated);
-
 	}
+
+
 }

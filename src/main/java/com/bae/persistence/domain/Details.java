@@ -23,20 +23,20 @@ public class Details {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date dateTo;
 
-
     @OneToMany
     private List<Poi> poi;
 
     public Details() {
     }
 
-    public Details(String origin, String destination, Date dateFrom, Date dateTo, Poi... poi) {
+    public Details(String origin, String destination, Date dateFrom, Date dateTo, Poi ... poi) {
         super();
         this.origin = origin;
         this.destination = destination;
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
         this.poi = Arrays.asList(poi);
+
     }
 
     public List<Poi> getPoi() {

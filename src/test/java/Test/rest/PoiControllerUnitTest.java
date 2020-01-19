@@ -2,6 +2,7 @@ package Test.rest;
 
 import com.bae.Rest.PoiController;
 import com.bae.Service.PoiService;
+import com.bae.exceptions.PoiNotFoundException;
 import com.bae.persistence.domain.Poi;
 import org.junit.Before;
 import org.junit.Test;
@@ -40,7 +41,7 @@ public class PoiControllerUnitTest {
     }
 
     @Test
-    public void getAllPoiTest() {
+    public void getAllPoiTest() throws PoiNotFoundException {
         when(poiService.getAllPoi()).thenReturn(this.poiList);
 
         assertFalse("Controller has found no poi", this.poiController.getAllPoi().isEmpty());
@@ -49,7 +50,7 @@ public class PoiControllerUnitTest {
     }
 
     @Test
-    public void getPoiTest() {
+    public void getPoiTest() throws PoiNotFoundException {
         when(this.poiService.findPoiById(this.id)).thenReturn(this.poiId);
 
         assertEquals(this.poiId, this.poiController.getPoi(this.id));
@@ -67,7 +68,7 @@ public class PoiControllerUnitTest {
     }
 
     @Test
-    public void updateDuckTest() {
+    public void updatePoiTest() throws PoiNotFoundException{
         Poi newPoi = new Poi("updated name.", "updated link");
         Poi updatedPoi = new Poi(newPoi.getPoiName(), newPoi.getLink());
         updatedPoi.setId(this.id);
@@ -81,7 +82,7 @@ public class PoiControllerUnitTest {
     }
 
     @Test
-    public void deletePoiTest() {
+    public void deletePoiTest() throws PoiNotFoundException {
         this.poiController.deletePoi(id);
 
         verify(this.poiService, times(1)).deletePoi(id);

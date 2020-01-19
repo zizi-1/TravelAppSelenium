@@ -2,6 +2,7 @@ package Test.service;
 
 import com.bae.Application;
 import com.bae.Service.PoiService;
+import com.bae.exceptions.PoiNotFoundException;
 import com.bae.persistence.domain.Poi;
 import com.bae.persistence.repo.PoiRepo;
 
@@ -43,12 +44,13 @@ public class PoiServiceIntegrationTest {
     }
 
     @Test
-    public void deletePoiTest() {
+    public void deletePoiTest() throws PoiNotFoundException {
         assertThat(this.poiService.deletePoi(this.poiId.getId())).isFalse();
     }
 
     @Test
     public void FindPoiByIDTest() {
+
         assertThat(this.poiService.findPoiById(this.poiId.getId())).isEqualTo(this.poiId);
     }
 

@@ -1,4 +1,93 @@
 
+/*update modal*/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+span{
+    color: white;
+    /*contrasts the text*/
+    mix-blend-mode: difference;
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: left;
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header h2 {
+    padding: 2px 10px;
+    background-color: #fec503;
+    color: white;
+}
+
+.header-text {
+    background-color: #fec503;
+    color: white;
+
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    background-color: #fec503;
+    color: white;
+    text-align: center;
+    padding: 8px;
+}
+
+td {
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
 .box2 {
     float: left;
     position: absolute;;
@@ -19,10 +108,9 @@
 .box4 {
     float: left;
     position: absolute;
-    left: 55px;
-    top: 350px;
+    left: 520px;
+    top: 450px;
     box-sizing: border-box;
-
 }
 
 .box5 {
@@ -52,7 +140,6 @@ body {
     -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'
 }
-
 
 a {
     color: #2dc997;
@@ -85,7 +172,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: 100%;
     overflow: visible;
-    background: #fff url("../img/preloader.svg") no-repeat center center;
+    background: #fff url("../img/man-mountain.jpg") no-repeat center center;
 }
 
 /* Back to top button */
@@ -177,7 +264,7 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
-#home {
+#prettyHomePg {
     width: 100%;
     height: 100vh;
     background: url(../img/mountain-bg.jpg) top center;
@@ -186,12 +273,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (min-width: 1024px) {
-    #home {
+    #prettyHomePg {
         background-attachment: fixed;
     }
 }
 
-#home:before {
+#prettyHomePg:before {
     content: "";
     background: rgba(0, 0, 0, 0.3);
     position: absolute;
@@ -201,7 +288,7 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
 }
 
-#home .home-container {
+#prettyHomePg .hero-container {
     position: absolute;
     bottom: 0;
     top: 0;
@@ -214,7 +301,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-#home h1 {
+#prettyHomePg h1 {
     margin: 30px 0 10px 0;
     font-size: 48px;
     font-weight: 700;
@@ -224,27 +311,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
-    #home h1 {
+    #prettyHomePg h1 {
         font-size: 28px;
         line-height: 36px;
     }
 }
 
-#home h2 {
+#prettyHomePg h2 {
     color: #eee;
     margin-bottom: 50px;
     font-size: 24px;
 }
 
 @media (max-width: 768px) {
-    #home h2 {
+    #prettyHomePg h2 {
         font-size: 18px;
         line-height: 24px;
         margin-bottom: 30px;
     }
 }
 
-#home .btn-get-started {
+#prettyHomePg .btn-get-started {
     font-family: "Poppins", sans-serif;
     text-transform: uppercase;
     font-weight: 500;
@@ -260,7 +347,7 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
-#home .btn-get-started:hover {
+#prettyHomePg .btn-get-started:hover {
     background: #000000;
     border: 2px solid #7a0ea5;
 }
@@ -536,51 +623,52 @@ body.mobile-nav-active #mobile-nav-toggle {
     color: #999;
 }
 
-/* About Us Section / summary
+/* summary
 --------------------------------*/
 #summary {
-    background-image: linear-gradient(#cfd9df 0%, #e2ebf0 100%);
+    /*background-image: linear-gradient(#cfd9df 0%, #e2ebf0 100%);*/
+    background: url(https://i.redd.it/hi9qw7pr32f21.jpg);
     padding: 40px 0;
     padding-bottom: 100px;
 }
 
-#summary .summary-container .background {
+#summary .about-container .background {
     min-height: 100px;
     background: rgb(53, 23, 102);
     margin-bottom: 10px;
 }
 
-#summary .summary-container .content {
+#summary .about-container .content {
     background: none;
 }
 
-#summary .summary-container .title {
+#summary .about-container .title {
     color: #333;
     font-weight: 700;
     font-size: 32px;
 }
 
 @media (max-width: 768px) {
-    #summary .summary-container .title {
+    #summary .about-container .title {
         padding-top: 15px;
     }
 }
 
-#summary .summary-container p {
+#summary .about-container p {
     line-height: 26px;
 }
 
-#summary .summary-container p:last-child {
+#summary .about-container p:last-child {
     margin-bottom: 0;
 }
 
-#summary .summary-container .icon-box {
-    background: rgb(194, 182, 13);
+#summary .about-container .icon-box {
+    background: none;
     background-size: cover;
     padding: 0 0 30px 0;
 }
 
-#summary .summary-container .icon-box .icon {
+#summary .about-container .icon-box .icon {
     float: left;
     background: rgb(110, 63, 63);
     width: 64px;
@@ -594,12 +682,12 @@ body.mobile-nav-active #mobile-nav-toggle {
     border: 2px solid #2dc997;
 }
 
-#summary .summary-container .icon-box .icon i {
+#summary .about-container .icon-box .icon i {
     color: #2dc997;
     font-size: 24px;
 }
 
-#summary .summary-container .icon-box .title {
+#summary .about-container .icon-box .title {
     margin-left: 80px;
     font-weight: 500;
     margin-bottom: 5px;
@@ -607,25 +695,25 @@ body.mobile-nav-active #mobile-nav-toggle {
     text-transform: uppercase;
 }
 
-#summary .summary-container .icon-box .title a {
+#summary .about-container .icon-box .title a {
     color: #111;
 }
 
-#summary .summary-container .icon-box .description {
+#summary .about-container .icon-box .description {
     margin-left: 80px;
     line-height: 24px;
     font-size: 14px;
 }
 
-/* Services Section /details
+/* details
 --------------------------------*/
-#services {
+#details {
     background: url(../img/cool-background.png);
     background-size: cover;
     padding: 60px 0 60px 0;
 }
 
-#services .box {
+#details .box {
     padding: 50px 20px;
     margin-bottom: 50px;
     text-align: center;
@@ -635,7 +723,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     background: #fafafa;
 }
 
-#services .icon {
+#details .icon {
     position: absolute;
     top: -36px;
     left: calc(50% - 36px);
@@ -652,40 +740,40 @@ body.mobile-nav-active #mobile-nav-toggle {
     background: #2dc997;
 }
 
-#services .icon a {
+#details .icon a {
     display: inline-block;
 }
 
-#services .icon i {
+#details .icon i {
     color: #fff;
     font-size: 24px;
 }
 
-#services .box:hover .icon {
+#details .box:hover .icon {
     background: #fff;
     border: 2px solid #2dc997;
 }
 
-#services .box:hover .icon i {
+#details .box:hover .icon i {
     color: #2dc997;
 }
 
-#services .box:hover .icon a {
+#details .box:hover .icon a {
     color: #2dc997;
 }
 
-#services .title {
+#details .title {
     font-weight: 700;
     font-size: 18px;
     margin-bottom: 15px;
     text-transform: uppercase;
 }
 
-#services .title a {
+#details .title a {
     color: #111;
 }
 
-#services .description {
+#details .description {
     font-size: 14px;
     line-height: 24px;
 }
@@ -738,23 +826,23 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 /* Portfolio Section
 --------------------------------*/
-#portfolio {
+#poiBudget {
     background: #fff;
-    padding: 80px 0;
+    padding: 50px 0;
 }
 
-#portfolio #portfolio-wrapper {
+#poiBudget #portfolio-wrapper {
     padding-right: 15px;
 }
 
-#portfolio #portfolio-flters {
+#poiBudget #portfolio-flters {
     padding: 0;
     margin: 0 0 45px 0;
     list-style: none;
     text-align: center;
 }
 
-#portfolio #portfolio-flters li {
+#poiBudget #portfolio-flters li {
     cursor: pointer;
     margin: 0 10px;
     display: inline-block;
@@ -769,12 +857,12 @@ body.mobile-nav-active #mobile-nav-toggle {
     transition: all 0.3s ease-in-out;
 }
 
-#portfolio #portfolio-flters li:hover, #portfolio #portfolio-flters li.filter-active {
+#poiBudget #portfolio-flters li:hover, #poiBudget #portfolio-flters li.filter-active {
     background: #2dc997;
     color: #fff;
 }
 
-#portfolio .portfolio-item {
+#poiBudget .portfolio-item {
     position: relative;
     height: 500px;
     overflow: hidden !important;
@@ -783,18 +871,18 @@ body.mobile-nav-active #mobile-nav-toggle {
     transform: scale(1);
 }
 
-#portfolio .portfolio-item a {
+#poiBudget .portfolio-item a {
     display: block;
     margin-right: 15px;
 }
 
-#portfolio .portfolio-item img {
+#poiBudget .portfolio-item img {
     position: relative;
     top: 0;
     transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-#portfolio .portfolio-item .details {
+#poiBudget .portfolio-item .details {
     height: 50px;
     background: #2dc997;
     position: absolute;
@@ -804,7 +892,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-#portfolio .portfolio-item .details h4 {
+#poiBudget .portfolio-item .details h4 {
     font-size: 14px;
     font-weight: 700;
     color: #fff;
@@ -812,18 +900,18 @@ body.mobile-nav-active #mobile-nav-toggle {
     margin: 0;
 }
 
-#portfolio .portfolio-item .details span {
+#poiBudget .portfolio-item .details span {
     display: block;
     color: #fff;
     font-size: 13px;
     padding-left: 8px;
 }
 
-#portfolio .portfolio-item:hover .details {
+#poiBudget .portfolio-item:hover .details {
     bottom: 0;
 }
 
-#portfolio .portfolio-item:hover img {
+#poiBudget .portfolio-item:hover img {
     top: -30px;
 }
 
@@ -851,22 +939,22 @@ body.mobile-nav-active #mobile-nav-toggle {
     width: 360px;
     height: 480px;
     left: 700px;
-    top: -35px;
-    background: url('https://images.unsplash.com/photo-1515694155821-5d0468e19b12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80');
+    top: 7px;
+    background: url('https://i.pinimg.com/564x/45/d0/3e/45d03e2303db3589becefa40bc18ebc8.jpg');
     background-size: cover;
 
     border-radius: 2px;
     position: relative;
 }
 
-.zzz .city-title, .city-weather-temperature, .city-weather-description, img.city-weather-icon {
+.zzz .destination-title, .destination-weather-temperature, .destination-weather-description, img.city-weather-icon {
     font-family: 'Intro';
     text-align: center;
     margin: auto;
     display: block;
 }
 
-.zzz .city-title {
+.zzz .destination-title {
     font-size: 26px;
     padding-top: 24px;
 }
@@ -877,12 +965,12 @@ body.mobile-nav-active #mobile-nav-toggle {
     width: 112px;
 }
 
-.zzz .city-weather-temperature {
+.zzz .destination-weather-temperature {
     font-size: 22px;
     margin-bottom: 10px;
 }
 
-.zzz .city-weather-description {
+.zzz .destination-weather-description {
     width: 120px;
     margin: auto;
     text-align: center;
@@ -1020,7 +1108,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     width: 360px;
     height: 480px;
     left: -30px;
-    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chicago.jpg');
+    background: url('https://images.unsplash.com/photo-1530908295418-a12e326966ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
     background-size: cover;
     border-radius: 2px;
     float: left;
@@ -1029,14 +1117,14 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 }
 
-.aaa .city-title, .city-weather-temperature, .city-weather-description, img.city-weather-icon {
+.aaa .origin-title, .origin-weather-temperature, .origin-weather-description, img.city-weather-icon {
     font-family: 'Intro';
     text-align: center;
     margin: auto;
     display: block;
 }
 
-.aaa .city-title {
+.aaa .origin-title {
     font-size: 26px;
     padding-top: 24px;
 }
@@ -1047,12 +1135,12 @@ body.mobile-nav-active #mobile-nav-toggle {
     width: 112px;
 }
 
-.aaa .city-weather-temperature {
+.aaa .origin-weather-temperature {
     font-size: 22px;
     margin-bottom: 10px;
 }
 
-.aaa .city-weather-description {
+.aaa .origin-weather-description {
     width: 120px;
     margin: auto;
     text-align: center;
@@ -1173,4 +1261,91 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .aaa .hide {
     display: none;
+}
+
+
+/* arrow can be used in mutltiple browsers*/
+.downArrow{
+    position: absolute;
+    bottom: 20%;
+    left: 90%;
+
+}
+.bounce {
+    -moz-animation: bounce 3s infinite;
+    -webkit-animation: bounce 3s infinite;
+    animation: bounce 3s infinite;
+}
+@-moz-keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        -moz-transform: translateY(0);
+        transform: translateY(0);
+    }
+    40% {
+        -moz-transform: translateY(-30px);
+        transform: translateY(-30px);
+    }
+    60% {
+        -moz-transform: translateY(-15px);
+        transform: translateY(-15px);
+    }
+}
+@-webkit-keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    40% {
+        -webkit-transform: translateY(-30px);
+        transform: translateY(-30px);
+    }
+    60% {
+        -webkit-transform: translateY(-15px);
+        transform: translateY(-15px);
+    }
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    40% {
+        -moz-transform: translateY(-30px);
+        -ms-transform: translateY(-30px);
+        -webkit-transform: translateY(-30px);
+        transform: translateY(-30px);
+    }
+    60% {
+        -moz-transform: translateY(-15px);
+        -ms-transform: translateY(-15px);
+        -webkit-transform: translateY(-15px);
+        transform: translateY(-15px);
+    }
+}
+
+.arrow {
+    font-family: 'Raleway', sans-serif;
+    color:#fff;
+    display: block;
+    margin: 0 auto;
+    padding: 25px 0;
+    text-align: center;
+}
+.arrow a{
+    font-family: 'Raleway', sans-serif;
+    color: #2ecc71;
+}
+.rotateimg270 {
+    -webkit-transform:rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+
+.arrws {
+    font-size:80px;
+
 }

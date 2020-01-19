@@ -165,9 +165,6 @@ var budgetController = (function() {
     
 })();
 
-
-
-
 // UI CONTROLLER
 var UIController = (function() {
     
@@ -439,7 +436,7 @@ var controller = (function(budgetCtrl, UICtrl) {
     
     return {
         init: function() {
-            console.log('Budget app has started zohaib.');
+            console.log('Application has started.');
             UICtrl.displayBudget({
                 budget: 0,
                 totalInc: 0,
