@@ -165,9 +165,6 @@ var budgetController = (function() {
     
 })();
 
-
-
-
 // UI CONTROLLER
 var UIController = (function() {
     

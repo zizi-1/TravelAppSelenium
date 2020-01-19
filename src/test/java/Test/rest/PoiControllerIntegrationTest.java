@@ -46,10 +46,18 @@ public class PoiControllerIntegrationTest {
     @Before
     public void init() {
         this.poiRepo.deleteAll();
-
         this.poi = new Poi("Poi name", "Poi link");
         this.poiId = this.poiRepo.save(this.poi);
         this.id = this.poiId.getId();
+    }
+
+    @Test
+    public void addPoiTest() throws Exception {
+        String result = this.mock
+                .perform(request(HttpMethod.POST, "/poi/add").contentType(MediaType.APPLICATION_JSON)
+                        .content(this.mapper.writeValueAsString(poi)).accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+        assertEquals(this.mapper.writeValueAsString(poiId), result);
     }
 
     @Test
@@ -65,21 +73,7 @@ public class PoiControllerIntegrationTest {
 
     @Test
     public void getPoiTest() throws Exception {
-        List<Poi> poiList = new ArrayList<>();
-        poiList.add(this.poiId);
-
-        String content = this.mock.perform(request(HttpMethod.GET, "/poi/get/" + this.id).accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
-        assertEquals(this.mapper.writeValueAsString(poiList), content);
-    }
-
-    @Test
-    public void addPoiTest() throws Exception {
-        String result = this.mock
-                .perform(request(HttpMethod.POST, "/poi/add").contentType(MediaType.APPLICATION_JSON)
-                        .content(this.mapper.writeValueAsString(poi)).accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
-        assertEquals(this.mapper.writeValueAsString(poiId), result);
+        this.mock.perform(request(HttpMethod.GET, "/poi/get/" + this.id)).andExpect(status().isOk());
     }
 
     @Test
@@ -89,7 +83,7 @@ public class PoiControllerIntegrationTest {
         updatedPoi.setId(this.id);
 
         String result = this.mock
-                .perform(request(HttpMethod.PUT, "/poi/update/?id=" + this.id).accept(MediaType.APPLICATION_JSON)
+                .perform(request(HttpMethod.PUT, "/poi/update/" + this.id).accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON).content(this.mapper.writeValueAsString(newPoi)))
                 .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
 
@@ -99,6 +93,5 @@ public class PoiControllerIntegrationTest {
     @Test
     public void deletePoiTest() throws Exception {
         this.mock.perform(request(HttpMethod.DELETE, "/poi/delete/" + this.id)).andExpect(status().isOk());
-
     }
 }

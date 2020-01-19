@@ -29,6 +29,7 @@ public class PoiController {
 
     @GetMapping("/get/{id}")
     public Poi getPoi(@PathVariable Long id) {
+
         return this.poiService.findPoiById(id);
     }
 

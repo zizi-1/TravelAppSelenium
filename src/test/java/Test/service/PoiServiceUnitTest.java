@@ -1,6 +1,7 @@
 package Test.service;
 
 import com.bae.Service.PoiService;
+import com.bae.exceptions.PoiNotFoundException;
 import com.bae.persistence.domain.Poi;
 import com.bae.persistence.repo.PoiRepo;
 import org.junit.Before;
@@ -27,6 +28,7 @@ public class PoiServiceUnitTest {
 
     @Mock
     private PoiRepo poiRepo;
+
     private List<Poi> poiList;
     private Poi poi;
     private Poi poiId;
@@ -84,8 +86,8 @@ public class PoiServiceUnitTest {
     }
 
     @Test
-    public void deletePoiTest() {
-        when(this.poiRepo.existsById(id)).thenReturn(true, false);
+    public void deletePoiTest() throws PoiNotFoundException {
+        when(this.poiRepo.existsById(id)).thenReturn(true);
 
         this.poiService.deletePoi(id);
 
