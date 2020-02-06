@@ -16,12 +16,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.concurrent.TimeUnit;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = Application.class)
+@SpringBootTest(classes = Application.class)
 public class addPoi {
     private WebDriver driver;
-
-    @LocalServerPort
-    private int port;
 
     @Before
     public void setup() {
@@ -34,7 +31,7 @@ public class addPoi {
 
     @Test
     public void test() {
-        driver.get("http://localhost:" + port);
+        driver.get("http://35.176.13.135:9090");
         PoiPage poiPage = PageFactory.initElements(driver, PoiPage.class);
         poiPage.selectPoiPage();
         poiPage.addPoi("dubai", "https://www.dubai.com");
